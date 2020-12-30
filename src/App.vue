@@ -1,11 +1,39 @@
+
+
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <van-nav-bar
+      :title="nav_bar_title"
+      :left-arrow="left_arrow"
+      @click-left="onClickLeft"
+    />
+    <router-view />
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+       
+      left_arrow: true,
+    };
+  },
+  computed: {
+    nav_bar_title() {
+      return this.$store.state.nav.nav_bar_title
+    }
+  },
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+  },
+};
+</script>
 
+<style   scoped>
+.van-nav-bar{
+  background-color: lightblue;
+}
+</style>
