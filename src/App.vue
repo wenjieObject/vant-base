@@ -15,8 +15,7 @@
 export default {
   data() {
     return {
-       
-      left_arrow: true,
+      left_arrow: false,
     };
   },
   computed: {
