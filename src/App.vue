@@ -2,11 +2,6 @@
 
 <template>
   <div>
-    <van-nav-bar
-      :title="nav_bar_title"
-      :left-arrow="left_arrow"
-      @click-left="onClickLeft"
-    />
     <router-view />
   </div>
 </template>
@@ -18,16 +13,8 @@ export default {
       left_arrow: false,
     };
   },
-  computed: {
-    nav_bar_title() {
-      return this.$store.state.nav.nav_bar_title
-    }
-  },
-  methods: {
-    onClickLeft() {
-      this.$router.go(-1);
-    },
-  },
+ 
+ 
 };
 </script>
 

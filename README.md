@@ -145,4 +145,15 @@ index.html 输入
 
    ## 3.vue.config的内容
 
-   
+
+
+
+https://m.360buyimg.com/babel/jfs/t1/47544/23/372/3943/5cd4f24eE92fbcf79/4b49b55af25a7bdf.png
+
+白条
+
+https://m.360buyimg.com/babel/jfs/t1/39983/24/6834/1596/5cd4f247E8cf89f1e/b8a8418d5418f471.png
+
+
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210108094723339.png" alt="image-20210108094723339" style="zoom:50%;" />
