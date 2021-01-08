@@ -3,16 +3,19 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+
+       <tabbar></tabbar>
   </div>
 </template>
 
 <script>
+import tabbar from '../component/Tabbar'
   export default {
-
-    mounted () {
-      this.$store.commit("setBartitle", '关于');
+    components: {
+      tabbar,
     },
-    
+
+ 
   }
 </script>
 

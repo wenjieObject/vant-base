@@ -51,13 +51,19 @@
         <van-image src="https://img.yzcdn.cn/vant/apple-3.jpg" />
       </van-grid-item>
     </van-grid>
+
+    
+    <tabbar></tabbar>
   </div>
 </template>
 
 <script>
 import { Toast } from "vant";
-
+import tabbar from '../component/Tabbar'
 export default {
+  components: {
+    tabbar,
+  },
   data() {
     return {
       value: "",
