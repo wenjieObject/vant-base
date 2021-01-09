@@ -1,7 +1,7 @@
 
 
 <template>
-  <div>
+  <div class="maindiv">
     <router-view />
   </div>
 </template>
@@ -21,5 +21,9 @@ export default {
 <style   scoped>
 .van-nav-bar{
   background-color: lightblue;
+}
+.maindiv{
+  height: 100%;
+
 }
 </style>

@@ -4,8 +4,7 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Home',
     component: Home
@@ -24,6 +23,15 @@ const routes = [
     path: '/itemdetail/:id',
     name: 'itemdetail',
     component: () => import('../views/item/Itemdetail.vue')
+  }, {
+    path: '/itemlist',
+    name: 'itemlist',
+    component: () => import('../views/item/Itemlist.vue'),
+    children: [{
+      path: '/itemlist/cate1',
+      name: 'cate1',
+      component: () => import('../views/item/Itemdetail.vue'),
+    }]
   }
 ]
 
