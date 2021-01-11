@@ -1,18 +1,24 @@
 <template>
   <div style="height: 100%">
     <van-search v-model="searchVal" placeholder="请输入搜索关键词" />
-
-    <div class="contain">
-      <div class="sidebar">
-        <van-sidebar v-model="activeKey" @change="onChange">
-          <van-sidebar-item title="标签名1" />
-          <van-sidebar-item title="标签名2" to="/itemlist/cate1" />
-          <van-sidebar-item title="标签名3" />
+    <div class="m-cateContainer">
+      <div class="m-left">
+        <div style="transform: translateY(0px);">
+        <van-sidebar v-model="activeKey">
+          <van-sidebar-item title="标签名称" to="/itemlist/cate1" />
+          <van-sidebar-item title="标签名称" />
+          <van-sidebar-item title="标签名称" />
         </van-sidebar>
+        </div>
       </div>
-      <van-image height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      <div class="m-right">
+        <div style="transform: translateY(0px)">
+          <div>
+          <router-view />
+          </div>
+        </div>
+      </div>
     </div>
-
     <tabbar></tabbar>
   </div>
 </template>
@@ -27,7 +33,7 @@ export default {
   data() {
     return {
       searchVal: "",
-      activeKey: 0,
+      activeKey: 1,
       swipers: [
         {
           carouselUrl: require("../../assets/item/1.jpg"),
@@ -59,15 +65,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.contain {
-  height: 100%;
+.m-cateContainer {
+  overflow: auto;
+  height: 86%;
   width: 100%;
-  display: flex;
-  justify-content: start;
-  .sidebar{
-      height: 100%;
-      width: 4.3rem;
+  .m-left {
+    float: left;
+    width: 21%;
+    height: 100%;
+    overflow: auto;
+    //background-color: yellow;
+  }
+  .m-right {
+    float: left;
+    width: 79%;
+    padding: 0.4rem 0.32rem 0.28rem;
+    height: 100%;
+    overflow: auto;
   }
 }
 </style>

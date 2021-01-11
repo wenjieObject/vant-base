@@ -143,17 +143,119 @@ index.html 输入
 
    
 
-   ## 3.vue.config的内容
+   
 
 
 
-
-https://m.360buyimg.com/babel/jfs/t1/47544/23/372/3943/5cd4f24eE92fbcf79/4b49b55af25a7bdf.png
-
-白条
-
-https://m.360buyimg.com/babel/jfs/t1/39983/24/6834/1596/5cd4f247E8cf89f1e/b8a8418d5418f471.png
+## 3.左侧边栏右侧内容的样式
 
 
 
-<img src="https://yanxuan-item.nosdn.127.net/dbf3572d55dbae2201fc9c24f7969fc6.jpg?type=webp&amp;imageView&amp;quality=75&amp;thumbnail=750x0">
+主要样式设置 .m-left左侧导航栏的class  ， .m-right右侧导航的class
+
+```css
+.m-cateContainer {
+  overflow: auto;
+  height: 86%;
+  width: 100%;
+  .m-left {
+    float: left;
+    width: 21%;
+    height: 100%;
+    overflow: auto;
+    //background-color: yellow;
+  }
+  .m-right {
+    float: left;
+    width: 79%;
+    padding: 0.4rem 0.32rem 0.28rem;
+    height: 100%;
+    overflow: auto;
+  }
+```
+
+
+
+```vue
+<template>
+  <div style="height: 100%">
+    <van-search v-model="searchVal" placeholder="请输入搜索关键词" />
+    <div class="m-cateContainer">
+      <div class="m-left">
+        <div style="transform: translateY(0px);">
+        <van-sidebar v-model="activeKey">
+          <van-sidebar-item title="标签名称" to="/itemlist/cate1" />
+          <van-sidebar-item title="标签名称" />
+          <van-sidebar-item title="标签名称" />
+        </van-sidebar>
+        </div>
+      </div>
+      <div class="m-right">
+        <div style="transform: translateY(0px)">
+          <div>
+          <router-view />
+          </div>
+        </div>
+      </div>
+    </div>
+    <tabbar></tabbar>
+  </div>
+</template>
+
+<script>
+import tabbar from "../../component/Tabbar";
+
+export default {
+  components: {
+    tabbar,
+  },
+  data() {
+    return {
+      searchVal: "",
+      activeKey: 1,
+    };
+  },
+  methods: {
+    onChange() {},
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.m-cateContainer {
+  overflow: auto;
+  height: 86%;
+  width: 100%;
+  .m-left {
+    float: left;
+    width: 21%;
+    height: 100%;
+    overflow: auto;
+    //background-color: yellow;
+  }
+  .m-right {
+    float: left;
+    width: 79%;
+    padding: 0.4rem 0.32rem 0.28rem;
+    height: 100%;
+    overflow: auto;
+  }
+}
+</style>
+```
+
+ 另外需要在router里面，左侧导航to的属性 `to="/itemlist/cate1"` ,/itemlist的children属性
+
+```js
+{
+    path: '/itemlist',
+    name: 'itemlist',
+    component: () => import('../views/item/Itemlist.vue'),
+    children: [{
+      path: '/itemlist/cate1',
+      name: 'cate1',
+      component: () => import('../views/item/Itemdetail.vue'),
+    }]
+  }
+```
+
